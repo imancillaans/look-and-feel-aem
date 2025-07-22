@@ -252,5 +252,9 @@
       "valueType": "string"
     }
   ]
+},
+{
+  "id": "page-info",
+  "fields": []
 }
 ]
