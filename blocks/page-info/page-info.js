@@ -24,7 +24,7 @@ function getPageData() {
     keywords: getPageProperty('keywords') || getPageProperty('article:tag') || '',
     url: window.location.href,
     type: getPageProperty('og:type') || 'webpage',
-    siteName: getPageProperty('og:site_name') || getPageProperty('application-name') || document.domain,
+    siteName: getPageProperty('og:site_name') || getPageProperty('application-name') || window.location.hostname,
     locale: getPageProperty('og:locale') || document.documentElement.lang || 'en-US',
     image: getPageProperty('og:image') || getPageProperty('image') || null
   };
