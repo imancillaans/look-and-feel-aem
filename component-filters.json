@@ -18,7 +18,8 @@
       "fragment",
       "quote",
       "list",
-      "page-info"
+      "page-info",
+      "page-title"
     ]
   },
   {

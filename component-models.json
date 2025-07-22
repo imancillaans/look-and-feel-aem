@@ -256,5 +256,9 @@
 {
   "id": "page-info",
   "fields": []
+},
+{
+  "id": "page-title",
+  "fields": []
 }
 ]
