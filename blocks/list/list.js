@@ -10,6 +10,7 @@ function createListHeader(title) {
   
   const counter = document.createElement('span');
   counter.className = 'list-counter';
+  counter.textContent = '0 / 0';
   
   header.appendChild(titleElement);
   header.appendChild(counter);
@@ -28,7 +29,7 @@ function createListItem(content, index) {
   
   const contentDiv = document.createElement('div');
   contentDiv.className = 'list-content';
-  contentDiv.innerHTML = content;
+  contentDiv.textContent = content;
   
   const checkbox = document.createElement('button');
   checkbox.className = 'list-checkbox';
@@ -44,15 +45,6 @@ function createListItem(content, index) {
     e.preventDefault();
     li.classList.toggle('completed');
     updateCounter();
-  });
-  
-  // Add hover effects
-  li.addEventListener('mouseenter', () => {
-    li.classList.add('hovered');
-  });
-  
-  li.addEventListener('mouseleave', () => {
-    li.classList.remove('hovered');
   });
   
   return li;
@@ -87,71 +79,65 @@ function createProgressBar() {
 }
 
 export default function decorate(block) {
+  // Simplified approach - just take all content as list items
   const rows = [...block.children];
-  let title = '';
-  let items = [];
+  const items = [];
+  let title = 'My List';
   
-  // Extract title and items from rows
-  rows.forEach((row, index) => {
+  // Extract content from each row
+  rows.forEach((row) => {
     const cells = [...row.children];
-    if (index === 0 && cells.length > 0) {
-      title = cells[0].textContent.trim();
-      if (cells.length > 1) {
-        items.push(cells[1].innerHTML);
+    cells.forEach((cell) => {
+      const content = cell.textContent.trim();
+      if (content) {
+        items.push(content);
       }
-    } else if (cells.length > 0) {
-      items.push(cells[0].innerHTML);
-    }
+    });
   });
+  
+  // If first item looks like a title (short), use it as title
+  if (items.length > 0 && items[0].length < 50) {
+    title = items.shift();
+  }
   
   // Clear block
   block.innerHTML = '';
   
-  // Create list container
-  const listContainer = document.createElement('div');
-  listContainer.className = 'list-container';
+  // Create simple structure first
+  const container = document.createElement('div');
+  container.className = 'list-container';
   
-  // Add header if title exists
+  // Add header
   const header = createListHeader(title);
   if (header) {
-    listContainer.appendChild(header);
-    
-    // Add progress bar for interactive lists
-    const progressBar = createProgressBar();
-    listContainer.appendChild(progressBar);
+    container.appendChild(header);
+    container.appendChild(createProgressBar());
   }
   
   // Create list
   const ul = document.createElement('ul');
   ul.className = 'list-items';
   
+  // Add items or default content
+  if (items.length === 0) {
+    items.push('Sample item 1', 'Sample item 2', 'Sample item 3');
+  }
+  
   items.forEach((item, index) => {
     const listItem = createListItem(item, index);
     ul.appendChild(listItem);
   });
   
-  listContainer.appendChild(ul);
-  block.appendChild(listContainer);
+  container.appendChild(ul);
+  block.appendChild(container);
   
-  // Initial counter update
-  updateCounter();
-  
-  // Add intersection observer for animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        
-        // Stagger animation for list items
-        const listItems = entry.target.querySelectorAll('.list-item');
-        listItems.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add('fade-in');
-          }, index * 100);
-        });
-      }
+  // Make visible immediately
+  container.classList.add('animate-in');
+  setTimeout(() => {
+    const listItems = container.querySelectorAll('.list-item');
+    listItems.forEach((item) => {
+      item.classList.add('fade-in');
     });
-  }, { threshold: 0.1 });
-  
-  observer.observe(listContainer);
+    updateCounter();
+  }, 100);
 }
