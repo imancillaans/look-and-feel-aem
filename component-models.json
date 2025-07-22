@@ -216,25 +216,6 @@
     ]
   },
   {
-    "id": "hero-banner",
-    "fields": [
-      {
-        "component": "richtext",
-        "name": "heading",
-        "value": "",
-        "label": "Heading",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "subtitle", 
-        "value": "",
-        "label": "Subtitle",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
   "id": "quote",
   "fields": [
      {
@@ -252,5 +233,24 @@
        "value": ""
      }
    ]
+},
+{
+  "id": "list",
+  "fields": [
+    {
+      "component": "text",
+      "name": "title",
+      "value": "",
+      "label": "List Title",
+      "valueType": "string"
+    },
+    {
+      "component": "text",
+      "name": "item",
+      "value": "",
+      "label": "List Item",
+      "valueType": "string"
+    }
+  ]
 }
 ]

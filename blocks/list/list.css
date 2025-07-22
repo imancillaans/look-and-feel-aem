@@ -1,0 +1,19 @@
+.list {
+  margin: 2rem 0;
+}
+
+.list-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.5rem;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
