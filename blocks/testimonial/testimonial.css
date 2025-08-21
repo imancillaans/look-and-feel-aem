@@ -1,0 +1,317 @@
+/**
+ * Testimonial Block Styles
+ * Customer testimonials with theme system integration
+ */
+
+.testimonial {
+  margin: var(--theme-spacing-2xl, 3rem) 0;
+}
+
+.testimonial-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--theme-spacing-2xl, 3rem);
+  text-align: center;
+}
+
+/* Style variants */
+.testimonial-container--default {
+  background: transparent;
+}
+
+.testimonial-container--centered {
+  background: var(--theme-color-surface, var(--light-color));
+  border-radius: var(--theme-radius-xl, 1rem);
+  box-shadow: var(--theme-shadow-base);
+}
+
+.testimonial-container--card {
+  background: white;
+  border-radius: var(--theme-radius-xl, 1rem);
+  box-shadow: var(--theme-shadow-lg);
+  border: 1px solid var(--theme-color-border, #e5e7eb);
+}
+
+.testimonial-container--minimal {
+  padding: var(--theme-spacing-lg, 1.5rem);
+  border-left: 4px solid var(--theme-color-primary, var(--link-color));
+  background: transparent;
+  text-align: left;
+}
+
+/* Rating styles */
+.testimonial-rating {
+  display: flex;
+  justify-content: center;
+  gap: var(--theme-spacing-xs, 0.25rem);
+  margin-bottom: var(--theme-spacing-lg, 1.5rem);
+}
+
+.testimonial-container--minimal .testimonial-rating {
+  justify-content: flex-start;
+}
+
+.star-filled {
+  color: #fbbf24;
+  filter: drop-shadow(0 1px 2px rgba(251, 191, 36, 0.3));
+}
+
+.star-empty {
+  color: #d1d5db;
+  opacity: 0.5;
+}
+
+/* Quote styles */
+.testimonial-quote {
+  position: relative;
+  margin-bottom: var(--theme-spacing-xl, 2rem);
+}
+
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--theme-color-primary, var(--link-color));
+  opacity: 0.6;
+  user-select: none;
+  position: absolute;
+}
+
+.quote-mark--open {
+  top: -1rem;
+  left: -1rem;
+}
+
+.quote-mark--close {
+  bottom: -2rem;
+  right: -1rem;
+}
+
+.testimonial-container--minimal .quote-mark {
+  display: none;
+}
+
+.quote-content {
+  font-size: var(--heading-font-size-m);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-color);
+  position: relative;
+  z-index: 1;
+  margin: 0 2rem;
+}
+
+.testimonial-container--minimal .quote-content {
+  margin: 0;
+  font-size: var(--body-font-size-m);
+}
+
+.quote-content p {
+  margin: 0 0 var(--theme-spacing-base, 1rem) 0;
+}
+
+.quote-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Author styles */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--theme-spacing-base, 1rem);
+  margin-top: var(--theme-spacing-xl, 2rem);
+}
+
+.testimonial-container--minimal .testimonial-author {
+  justify-content: flex-start;
+  margin-top: var(--theme-spacing-lg, 1.5rem);
+}
+
+.author-image {
+  flex-shrink: 0;
+}
+
+.author-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--theme-color-primary, var(--link-color));
+  box-shadow: var(--theme-shadow-base);
+}
+
+.author-info {
+  text-align: left;
+  min-width: 0;
+}
+
+.testimonial-container--centered .author-info,
+.testimonial-container--card .author-info {
+  text-align: center;
+}
+
+.author-name {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: var(--theme-spacing-xs, 0.25rem);
+}
+
+.author-title {
+  font-size: var(--body-font-size-s);
+  color: var(--theme-color-primary, var(--link-color));
+  font-weight: 500;
+  margin-bottom: var(--theme-spacing-xs, 0.25rem);
+}
+
+.author-company {
+  font-size: var(--body-font-size-s);
+  color: var(--theme-color-text-light, var(--dark-color));
+  font-style: italic;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .testimonial-container {
+    padding: var(--theme-spacing-lg, 1.5rem);
+  }
+  
+  .testimonial-container--card,
+  .testimonial-container--centered {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+  }
+  
+  .quote-content {
+    font-size: var(--body-font-size-m);
+    margin: 0 1rem;
+  }
+  
+  .quote-mark {
+    font-size: 3rem;
+  }
+  
+  .quote-mark--open {
+    top: -0.5rem;
+    left: -0.5rem;
+  }
+  
+  .quote-mark--close {
+    bottom: -1.5rem;
+    right: -0.5rem;
+  }
+  
+  .testimonial-author {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--theme-spacing-sm, 0.5rem);
+  }
+  
+  .testimonial-container--minimal .testimonial-author {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .author-info {
+    text-align: center;
+  }
+  
+  .testimonial-container--minimal .author-info {
+    text-align: left;
+  }
+  
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-container {
+    padding: var(--theme-spacing-base, 1rem);
+  }
+  
+  .quote-content {
+    margin: 0;
+  }
+  
+  .quote-mark--open,
+  .quote-mark--close {
+    display: none;
+  }
+  
+  .testimonial-rating {
+    justify-content: center;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .testimonial-container--centered,
+  .testimonial-container--card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+  
+  .quote-content {
+    color: #f9fafb;
+  }
+  
+  .author-name {
+    color: #f9fafb;
+  }
+  
+  .author-company {
+    color: #d1d5db;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .testimonial-container--card,
+  .testimonial-container--centered {
+    border: 2px solid var(--text-color);
+  }
+  
+  .author-avatar {
+    border-color: var(--text-color);
+  }
+  
+  .quote-mark {
+    color: var(--text-color);
+    opacity: 1;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-container,
+  .testimonial-quote,
+  .testimonial-author,
+  .testimonial-rating {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .testimonial-container {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+  
+  .quote-mark {
+    color: #000 !important;
+    opacity: 0.3 !important;
+  }
+  
+  .author-avatar {
+    border-color: #000 !important;
+  }
+}

@@ -1,0 +1,278 @@
+/**
+ * Theme System CSS
+ * Base styles for themed components and utilities
+ * Extends the existing AEM EDS styles.css
+ */
+
+/* Theme-specific CSS custom properties will be injected by theme.js */
+
+/* Base theme component styles */
+.theme-icon {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  user-select: none;
+}
+
+/* Themed button system */
+.theme-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--theme-spacing-sm, 0.5rem);
+  border: none;
+  border-radius: var(--theme-radius-base, 0.5rem);
+  font-family: var(--body-font-family);
+  font-weight: var(--body-font-weight, 500);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--theme-animation-duration, 150ms) var(--theme-animation-easing, ease);
+  user-select: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.theme-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Button variants */
+.theme-button--primary {
+  background: var(--theme-gradient-primary, var(--link-color));
+  color: white;
+  box-shadow: var(--theme-shadow-sm);
+}
+
+.theme-button--primary:hover:not(:disabled) {
+  box-shadow: var(--theme-shadow-md);
+  transform: translateY(-1px);
+}
+
+.theme-button--secondary {
+  background: var(--theme-gradient-secondary, var(--theme-color-secondary));
+  color: white;
+  box-shadow: var(--theme-shadow-sm);
+}
+
+.theme-button--secondary:hover:not(:disabled) {
+  box-shadow: var(--theme-shadow-md);
+  transform: translateY(-1px);
+}
+
+.theme-button--outline {
+  background: transparent;
+  color: var(--theme-color-primary, var(--link-color));
+  border: 2px solid var(--theme-color-primary, var(--link-color));
+}
+
+.theme-button--outline:hover:not(:disabled) {
+  background: var(--theme-color-primary, var(--link-color));
+  color: white;
+}
+
+.theme-button--ghost {
+  background: transparent;
+  color: var(--theme-color-text, var(--text-color));
+  border: 2px solid transparent;
+}
+
+.theme-button--ghost:hover:not(:disabled) {
+  background: var(--theme-color-surface, var(--light-color));
+}
+
+/* Button sizes */
+.theme-button--sm {
+  padding: var(--theme-spacing-xs) var(--theme-spacing-base);
+  font-size: var(--body-font-size-xs);
+}
+
+.theme-button--base {
+  padding: var(--theme-spacing-sm) var(--theme-spacing-lg);
+  font-size: var(--body-font-size-s);
+}
+
+.theme-button--lg {
+  padding: var(--theme-spacing-base) var(--theme-spacing-xl);
+  font-size: var(--body-font-size-m);
+}
+
+/* Themed card component */
+.theme-card {
+  background: var(--theme-color-background, white);
+  border-radius: var(--theme-radius-lg);
+  box-shadow: var(--theme-shadow-base);
+  padding: var(--theme-spacing-lg);
+  transition: all var(--theme-animation-duration) var(--theme-animation-easing);
+}
+
+.theme-card:hover {
+  box-shadow: var(--theme-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.theme-card--gradient {
+  background: var(--theme-gradient-primary);
+  color: white;
+}
+
+.theme-card--surface {
+  background: var(--theme-color-surface, var(--light-color));
+}
+
+/* Themed badge component */
+.theme-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--theme-spacing-xs);
+  padding: var(--theme-spacing-xs) var(--theme-spacing-sm);
+  border-radius: var(--theme-radius-full);
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.theme-badge--primary {
+  background: var(--theme-color-primary, var(--link-color));
+  color: white;
+}
+
+.theme-badge--secondary {
+  background: var(--theme-color-secondary);
+  color: white;
+}
+
+.theme-badge--success {
+  background: var(--theme-color-success);
+  color: white;
+}
+
+.theme-badge--warning {
+  background: var(--theme-color-warning);
+  color: white;
+}
+
+.theme-badge--error {
+  background: var(--theme-color-error);
+  color: white;
+}
+
+.theme-badge--outline {
+  background: transparent;
+  border: 1px solid var(--theme-color-border);
+  color: var(--theme-color-text);
+}
+
+/* Utility classes */
+.theme-gradient-primary {
+  background: var(--theme-gradient-primary);
+}
+
+.theme-gradient-secondary {
+  background: var(--theme-gradient-secondary);
+}
+
+.theme-shadow-sm {
+  box-shadow: var(--theme-shadow-sm);
+}
+
+.theme-shadow-base {
+  box-shadow: var(--theme-shadow-base);
+}
+
+.theme-shadow-md {
+  box-shadow: var(--theme-shadow-md);
+}
+
+.theme-shadow-lg {
+  box-shadow: var(--theme-shadow-lg);
+}
+
+/* Animation utilities */
+.theme-animate-fade-in {
+  opacity: 0;
+  animation: themeAnimateFadeIn var(--theme-animation-duration) var(--theme-animation-easing) forwards;
+}
+
+.theme-animate-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: themeAnimateSlideUp var(--theme-animation-duration) var(--theme-animation-easing) forwards;
+}
+
+.theme-animate-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: themeAnimateScaleIn var(--theme-animation-duration) var(--theme-animation-easing) forwards;
+}
+
+/* Keyframes */
+@keyframes themeAnimateFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes themeAnimateSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes themeAnimateScaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive utilities */
+@media (width >= 768px) {
+  .theme-button--sm {
+    padding: var(--theme-spacing-sm) var(--theme-spacing-lg);
+  }
+  
+  .theme-button--base {
+    padding: var(--theme-spacing-base) var(--theme-spacing-xl);
+  }
+  
+  .theme-button--lg {
+    padding: var(--theme-spacing-lg) var(--theme-spacing-2xl);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .theme-card {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .theme-card--surface {
+    background: #374151;
+  }
+  
+  .theme-badge--outline {
+    border-color: #374151;
+    color: #f9fafb;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .theme-button,
+  .theme-card,
+  .theme-animate-fade-in,
+  .theme-animate-slide-up,
+  .theme-animate-scale-in {
+    animation: none;
+    transition: none;
+  }
+  
+  .theme-card:hover,
+  .theme-button:hover {
+    transform: none;
+  }
+}

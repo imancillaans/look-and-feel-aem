@@ -142,6 +142,49 @@
     ]
   },
   {
+    "id": "alert",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "label": "Alert Type",
+        "options": [
+          {
+            "name": "info",
+            "value": "info"
+          },
+          {
+            "name": "success",
+            "value": "success"
+          },
+          {
+            "name": "warning",
+            "value": "warning"
+          },
+          {
+            "name": "error",
+            "value": "error"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Alert Title"
+      },
+      {
+        "component": "richtext",
+        "name": "message",
+        "label": "Alert Message"
+      },
+      {
+        "component": "boolean",
+        "name": "dismissible",
+        "label": "Dismissible"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
@@ -176,6 +219,69 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "cta",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "CTA Title"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "CTA Description"
+      },
+      {
+        "component": "text",
+        "name": "primaryButton",
+        "label": "Primary Button Text"
+      },
+      {
+        "component": "text",
+        "name": "primaryLink",
+        "label": "Primary Button Link"
+      },
+      {
+        "component": "text",
+        "name": "secondaryButton",
+        "label": "Secondary Button Text"
+      },
+      {
+        "component": "text",
+        "name": "secondaryLink",
+        "label": "Secondary Button Link"
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "gradient",
+            "value": "gradient"
+          },
+          {
+            "name": "centered",
+            "value": "centered"
+          },
+          {
+            "name": "banner",
+            "value": "banner"
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "name": "backgroundImage",
+        "label": "Background Image"
       }
     ]
   },
@@ -216,49 +322,190 @@
     ]
   },
   {
-  "id": "quote",
-  "fields": [
-     {
-       "component": "richtext",
-       "name": "quote",
-       "value": "",
-       "label": "Quote",
-       "valueType": "string"
-     },
-     {
-       "component": "text",
-       "valueType": "string",
-       "name": "author",
-       "label": "Author",
-       "value": ""
-     }
-   ]
-},
-{
-  "id": "list",
-  "fields": [
-    {
-      "component": "text",
-      "name": "title",
-      "value": "",
-      "label": "List Title",
-      "valueType": "string"
-    },
-    {
-      "component": "text",
-      "name": "item",
-      "value": "",
-      "label": "List Item",
-      "valueType": "string"
-    }
-  ]
-},
-{
-  "id": "page-info",
-  "fields": []
-},
-{
-  "id": "page-title",
-  "fields": []
-}
+    "id": "list",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "value": "",
+        "label": "List Title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "listitem",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "content",
+        "value": "",
+        "label": "Item Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "page-info",
+    "fields": []
+  },
+  {
+    "id": "page-title",
+    "fields": []
+  },
+  {
+    "id": "stats",
+    "fields": [
+      {
+        "component": "select",
+        "name": "layout",
+        "label": "Layout",
+        "options": [
+          {
+            "name": "grid",
+            "value": "grid"
+          },
+          {
+            "name": "horizontal",
+            "value": "horizontal"
+          },
+          {
+            "name": "vertical",
+            "value": "vertical"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "animated",
+        "label": "Animated Numbers"
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "gradient",
+            "value": "gradient"
+          },
+          {
+            "name": "minimal",
+            "value": "minimal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "testimonial",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "quote",
+        "label": "Quote Text"
+      },
+      {
+        "component": "text",
+        "name": "author",
+        "label": "Author Name"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Author Title"
+      },
+      {
+        "component": "text",
+        "name": "company",
+        "label": "Company"
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Author Image"
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "centered",
+            "value": "centered"
+          },
+          {
+            "name": "card",
+            "value": "card"
+          },
+          {
+            "name": "minimal",
+            "value": "minimal"
+          }
+        ]
+      },
+      {
+        "component": "number",
+        "name": "rating",
+        "label": "Star Rating (1-5)"
+      }
+    ]
+  },
+  {
+    "id": "timeline",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Timeline Title"
+      },
+      {
+        "component": "select",
+        "name": "orientation",
+        "label": "Orientation",
+        "options": [
+          {
+            "name": "vertical",
+            "value": "vertical"
+          },
+          {
+            "name": "horizontal",
+            "value": "horizontal"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "default",
+            "value": "default"
+          },
+          {
+            "name": "minimal",
+            "value": "minimal"
+          },
+          {
+            "name": "card",
+            "value": "card"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "animated",
+        "label": "Animated Appearance"
+      }
+    ]
+  }
 ]
