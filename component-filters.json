@@ -15,7 +15,15 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "alert",
+      "stats",
+      "testimonial",
+      "cta",
+      "timeline",
+      "page-info",
+      "page-title",
+      "list"
     ]
   },
   {
